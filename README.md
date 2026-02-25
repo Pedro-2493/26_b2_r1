@@ -259,7 +259,7 @@ src/main/java/com/cesde/pi
 ```
 
 ### 5. Actualizar datos del estudante (PUT)
-- **Método**: `GET`
+- **Método**: `PUT`
 - **URL**: `http://localhost:8080/api/student/5`
 - **Cuerpo de la petición**: 
 ```json
@@ -311,4 +311,27 @@ src/main/java/com/cesde/pi
 
 ```
 
-## An
+## Análisis de Técnico
+
+### 1. Diferenciación semántica: 200 vs 201
+
+El código **201 Created** se reserva exlusivamente para decir que nuestro recurso (POST) se creo con éxito, confirmando que el servidor ha asignado un URI al nuevo objeto, el código **200 OK** es generico para operaciones de lectura o actualización donde el recurso ya existe.
+
+- **Endpoints**: 201 en el punto 1; 200 en los puntos 2,3,4 y 5.
+
+### 2. Importancia del error 404 sobre el 500
+
+Un **404** es un error de cliente (lógica de negocio): indica que la ruta es valida pero el dato no existe. Un **500** es una falla critica del servidor (exepción no controlada).
+Para un desarrollador Frontend, el 404 permite ejecutar una validación de interfaz (ej."Usuario no encontrado"), mientras que el 500 obliga a reportar un fallo en la infraestructura del Backend.
+
+### 3. Impacto en Persistencia (PostgreSQL)
+
+Al ejecutar un {DELETE}, postgreSQL ejecuta un comando de manipulacón de datos (DML) que elimina la tupla específica de la tabla mediante su Primary Key. En terminos de persistensia, se rompe el vínculo físico de esos datos, liberando el espacio y garantizando que futuras consultas no recuperen información residual.
+
+### 4. Escenario de Duplicidad de Email
+
+Al intentar registrar un nuevo estudiante con un email preexistente, el sistema retorna un **409 Conflict**. Esto ocurre por que el campo {email} posee una restricción de unicidad ({UNIQUE CONSTRAINT}) a nivel de esquema. El servidor detecta el conflicto antes de comprometer la transacción.
+
+### 5. Idempotencia: PUT vs POST
+
+Utilizamos **PUT** por su propiedad de **idempotencia**: múltiples peticiones identicas resultarán siempre en el mismo estado del recurso. **POST** no es idempotente; si se utilizara para actualizar, se correria el riesgo de generar efectos secundarios indeseados o duplicados en implementaciones no controladas. La convención REST dicta que PUT reemplaza un recurso conocido, mientras que POST crea uno nuevo o procesa datos.
