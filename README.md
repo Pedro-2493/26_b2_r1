@@ -142,9 +142,9 @@ src/main/java/com/cesde/pi
 ## Pruebas de Endpoints
 
 ### 1. Crear estudiante (POST)
--**Método:** POST
--**URL** `http://localhots:8080/api/student`
--**Cuerpo de la petición:** 
+- **Método**: `POST`
+- **URL**: `http://localhots:8080/api/student`
+- **Cuerpo de la petición**: 
 ```json
 {
 	"firstName": "David",
@@ -157,8 +157,8 @@ src/main/java/com/cesde/pi
     
 }
 ```
--**Código de estado:**`201 Created`
--**Respuesta del servidor**
+- **Código de estado**:`201 Created`
+- **Respuesta del servidor**:
 ```json
 {
     "firstName": "David",
@@ -173,14 +173,14 @@ src/main/java/com/cesde/pi
 ---
 
 ### 2. Obtener lista completa (GET)
--**Método:** GET
--**URL** `http://localhots:8080/api/student`
--**Cuerpo de la petición:** Sin Body
+- **Método**: `GET`
+- **URL**: `http://localhots:8080/api/student`
+- **Cuerpo de la petición**: Sin Body
 ```json
 
 ```
--**Código de estado:**`200 OK`
--**Respuesta del servidor**
+- **Código de estado**:`200 OK`
+- **Respuesta del servidor**:
 ```json
 [
     {
@@ -219,14 +219,14 @@ src/main/java/com/cesde/pi
 ```
 
 ### 3. Buscar estudiante por ID (GET)
--**Método:** GET
--**URL:** `http://localhost:8080/api/student/5`
--**Cuerpo de la petición:** Sin Body
+- **Método**: `GET`
+- **URL**: `http://localhost:8080/api/student/5`
+- **Cuerpo de la petición**: Sin Body
 ```json
 
 ```
--**Código de estado:**`200 OK`
--**Respuesta del servidor**
+- **Código de estado**:`200 OK`
+- **Respuesta del servidor**:
 ```json
 {
     "firstName": "David",
@@ -239,14 +239,14 @@ src/main/java/com/cesde/pi
 ```
 
 ### 4. Buscar estudiante por Email (GET)
--**Método:** GET
--**URL:** `http://localhost:8080/api/student/email/andres.garcia@example.com`
--**Cuerpo de la petición:** Sin Body
+- **Método**: `GET`
+- **URL**: `http://localhost:8080/api/student/email/andres.garcia@example.com`
+- **Cuerpo de la petición**: Sin Body
 ```json
 
 ```
--**Código de estado:**`200 OK`
--**Respuesta del servidor**
+- **Código de estado**: `200 OK`
+- **Respuesta del servidor**:
 ```json
 {
     "firstName": "Andres",
@@ -259,9 +259,9 @@ src/main/java/com/cesde/pi
 ```
 
 ### 5. Actualizar datos del estudante (PUT)
--**Método:** GET
--**URL:** `http://localhost:8080/api/student/5`
--**Cuerpo de la petición:** 
+- **Método**: `GET`
+- **URL**: `http://localhost:8080/api/student/5`
+- **Cuerpo de la petición**: 
 ```json
   {
         "firstName": "David Actualizado",
@@ -272,8 +272,8 @@ src/main/java/com/cesde/pi
         "phone": "3235622409"
     }
 ```
--**Código de estado:**`200 OK`
--**Respuesta del servidor**
+- **Código de estado**: `200 OK`
+- **Respuesta del servidor**:
 ```json
     {
     "firstName": "David Actualizado",
@@ -286,29 +286,29 @@ src/main/java/com/cesde/pi
 ```
 
 ### 6.Escenario de error: Buscar ID inexistente (GET)
--**Método:** GET
--**URL:** `http:localhost:8080/api/student/8`
--**Cuerpo de la petición:** Sin body
+- **Método**: `GET`
+- **URL**: `http:localhost:8080/api/student/8`
+- **Cuerpo de la petición**: Sin body
 ```json
 
 ```
--**Código de estado:** `404 Not Found`
--**Respuesta del servidor:**
+- **Código de estado**: `404 Not Found`
+- **Respuesta del servidor**:
 ```json
 
 ```
 
 ### 7. Eliminar registro (DELETE)
--**Método:** DELETE
--**URL:** `http:localhost:8080/api/student/4`
--**Cuerpo de la petición:** Sin Body
+- **Método**: `DELETE`
+- **URL**: `http:localhost:8080/api/student/4`
+- **Cuerpo de la petición**: Sin Body
 ```json
 
 ```
--**Código de estado:**`204 No Content`
--**Respuesta del servidor:**
+- **Código de estado**: `204 No Content`
+- **Respuesta del servidor**:
 ```json
 
 ```
 
-
+## An
