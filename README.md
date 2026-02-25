@@ -131,3 +131,184 @@ src/main/java/com/cesde/pi
 ├── dto           # Objetos de Transferencia de Datos
 └── exception     # Manejo de Excepciones Globales
 ```
+
+# Laboratorio: Documentación de Pruebas de API REST
+
+## Información del estudiante
+- **Nombre** Pedro Luis Zamora Martinez
+
+---
+
+## Pruebas de Endpoints
+
+### 1. Crear estudiante (POST)
+-**Método:** POST
+-**URL** `http://localhots:8080/api/student`
+-**Cuerpo de la petición:** 
+```json
+{
+	"firstName": "David",
+    "lastName": "Martinez",
+    "age": 33,
+    "email": "David.Mar@example.com",
+    "birthDate": "1993-05-22",
+    "phone": "3004587785"
+       
+    
+}
+```
+-**Código de estado:**`201 Created`
+-**Respuesta del servidor**
+```json
+{
+    "firstName": "David",
+    "lastName": "Martinez",
+    "email": "David.Mar@example.com",
+    "birthDate": "1993-05-22",
+    "id": 5,
+    "phone": "3004587785"
+}
+```
+
+---
+
+### 2. Obtener lista completa (GET)
+-**Método:** GET
+-**URL** `http://localhots:8080/api/student`
+-**Cuerpo de la petición:** Sin Body
+```json
+
+```
+-**Código de estado:**`200 OK`
+-**Respuesta del servidor**
+```json
+[
+    {
+        "firstName": "Andres",
+        "lastName": "Garcia",
+        "email": "andres.garcia@example.com",
+        "birthDate": "1990-01-01",
+        "id": 2,
+        "phone": "312565466"
+    },
+    {
+        "firstName": "Maria",
+        "lastName": "Mendoza",
+        "email": "maria.mendoza@example.com",
+        "birthDate": "1985-05-05",
+        "id": 3,
+        "phone": "312565466"
+    },
+    {
+        "firstName": "Kevin",
+        "lastName": "Velez",
+        "email": "kevin.Velez_marin@example.com",
+        "birthDate": "1990-07-10",
+        "id": 4,
+        "phone": "3154562134"
+    },
+    {
+        "firstName": "David",
+        "lastName": "Martinez",
+        "email": "David.Mar@example.com",
+        "birthDate": "1993-05-22",
+        "id": 5,
+        "phone": "3004587785"
+    }
+]
+```
+
+### 3. Buscar estudiante por ID (GET)
+-**Método:** GET
+-**URL:** `http://localhost:8080/api/student/5`
+-**Cuerpo de la petición:** Sin Body
+```json
+
+```
+-**Código de estado:**`200 OK`
+-**Respuesta del servidor**
+```json
+{
+    "firstName": "David",
+    "lastName": "Martinez",
+    "email": "David.Mar@example.com",
+    "birthDate": "1993-05-22",
+    "id": 5,
+    "phone": "3004587785"
+}
+```
+
+### 4. Buscar estudiante por Email (GET)
+-**Método:** GET
+-**URL:** `http://localhost:8080/api/student/email/andres.garcia@example.com`
+-**Cuerpo de la petición:** Sin Body
+```json
+
+```
+-**Código de estado:**`200 OK`
+-**Respuesta del servidor**
+```json
+{
+    "firstName": "Andres",
+    "lastName": "Garcia",
+    "email": "andres.garcia@example.com",
+    "birthDate": "1990-01-01",
+    "id": 2,
+    "phone": "312565466"
+}
+```
+
+### 5. Actualizar datos del estudante (PUT)
+-**Método:** GET
+-**URL:** `http://localhost:8080/api/student/5`
+-**Cuerpo de la petición:** 
+```json
+  {
+        "firstName": "David Actualizado",
+        "lastName": "Martinez",
+        "email": "David.ortiz@example.com",
+        "birthDate": "1993-05-22",
+        "id": 5,
+        "phone": "3235622409"
+    }
+```
+-**Código de estado:**`200 OK`
+-**Respuesta del servidor**
+```json
+    {
+    "firstName": "David Actualizado",
+    "lastName": "Martinez",
+    "email": "David.ortiz@example.com",
+    "birthDate": "1993-05-22",
+    "id": 5,
+    "phone": "3235622409"
+}
+```
+
+### 6.Escenario de error: Buscar ID inexistente (GET)
+-**Método:** GET
+-**URL:** `http:localhost:8080/api/student/8`
+-**Cuerpo de la petición:** Sin body
+```json
+
+```
+-**Código de estado:** `404 Not Found`
+-**Respuesta del servidor:**
+```json
+
+```
+
+### 7. Eliminar registro (DELETE)
+-**Método:** DELETE
+-**URL:** `http:localhost:8080/api/student/4`
+-**Cuerpo de la petición:** Sin Body
+```json
+
+```
+-**Código de estado:**`204 No Content`
+-**Respuesta del servidor:**
+```json
+
+```
+
+
