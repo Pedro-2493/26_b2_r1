@@ -315,7 +315,7 @@ src/main/java/com/cesde/pi
 
 ### 1. Diferenciación semántica: 200 vs 201
 
-El código **201 Created** se reserva exlusivamente para decir que nuestro recurso (POST) se creo con éxito, confirmando que el servidor ha asignado un URI al nuevo objeto, el código **200 OK** es generico para operaciones de lectura o actualización donde el recurso ya existe.
+El código **201 Created** se reserva exlusivamente para decir que nuestro recurso (`POST`) se creo con éxito, confirmando que el servidor ha asignado un URI al nuevo objeto, el código **200 OK** es generico para operaciones de lectura o actualización donde el recurso ya existe.
 
 - **Endpoints**: 201 en el punto 1; 200 en los puntos 2,3,4 y 5.
 
@@ -326,11 +326,11 @@ Para un desarrollador Frontend, el 404 permite ejecutar una validación de inter
 
 ### 3. Impacto en Persistencia (PostgreSQL)
 
-Al ejecutar un {DELETE}, postgreSQL ejecuta un comando de manipulacón de datos (DML) que elimina la tupla específica de la tabla mediante su Primary Key. En terminos de persistensia, se rompe el vínculo físico de esos datos, liberando el espacio y garantizando que futuras consultas no recuperen información residual.
+Al ejecutar un `DELETE`, postgreSQL ejecuta un comando de manipulacón de datos (DML) que elimina la tupla específica de la tabla mediante su Primary Key. En terminos de persistensia, se rompe el vínculo físico de esos datos, liberando el espacio y garantizando que futuras consultas no recuperen información residual.
 
 ### 4. Escenario de Duplicidad de Email
 
-Al intentar registrar un nuevo estudiante con un email preexistente, el sistema retorna un **409 Conflict**. Esto ocurre por que el campo {email} posee una restricción de unicidad ({UNIQUE CONSTRAINT}) a nivel de esquema. El servidor detecta el conflicto antes de comprometer la transacción.
+Al intentar registrar un nuevo estudiante con un email preexistente, el sistema retorna un **409 Conflict**. Esto ocurre por que el campo {email} posee una restricción de unicidad (`UNIQUE CONSTRAINT`) a nivel de esquema. El servidor detecta el conflicto antes de comprometer la transacción.
 
 ### 5. Idempotencia: PUT vs POST
 
